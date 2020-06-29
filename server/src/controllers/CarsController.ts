@@ -20,6 +20,20 @@ class CarsController {
     return response.sendStatus(201);
   }
 
+  async delete(request : Request, response: Response) {
+    const id = request.params.id;
+
+    const cars = await knex('cars')
+      .delete()
+      .where('id', id);
+
+    if (!cars) {
+      return response.sendStatus(400);
+    }
+
+    return response.json(200);
+  }
+
 }
 
 export default CarsController;

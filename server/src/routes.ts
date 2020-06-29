@@ -12,8 +12,6 @@ routes.get('/cars', carsController.index);
 
 routes.post('/cars', carsController.create);
 
-routes.delete('/cars/:id', async (request, response) => {
-  
-});
+routes.delete('/cars/:id', carsController.delete);
 
 export default routes;
