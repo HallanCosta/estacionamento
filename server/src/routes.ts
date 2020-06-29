@@ -10,9 +10,7 @@ const carsController = new CarsController;
 
 routes.get('/cars', carsController.index);
 
-routes.post('/cars', async (request, response) => {
-  
-});
+routes.post('/cars', carsController.create);
 
 routes.delete('/cars/:id', async (request, response) => {
   

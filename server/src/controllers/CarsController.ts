@@ -9,6 +9,17 @@ class CarsController {
     return response.json(cars);
   }
 
+  async create(request : Request, response: Response) {
+    const { name, board } = request.body;
+
+    await knex('cars').insert({
+      name,
+      board,
+    });
+
+    return response.sendStatus(201);
+  }
+
 }
 
 export default CarsController;
