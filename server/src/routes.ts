@@ -1,13 +1,21 @@
 import express from 'express';
+import knex from './database/connection';
+
+import CarsController from './controllers/CarsController';
+
 
 const routes = express.Router();
 
-routes.get('/cars', (request, response) => {
-  response.send("route get cars");
+const carsController = new CarsController; 
+
+routes.get('/cars', carsController.index);
+
+routes.post('/cars', async (request, response) => {
+  
 });
 
-routes.post('/cars', (request, response) => {
-  response.send('route post cars');
-})
+routes.delete('/cars/:id', async (request, response) => {
+  
+});
 
 export default routes;
