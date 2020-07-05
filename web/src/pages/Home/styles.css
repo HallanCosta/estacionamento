@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80vh;
+  padding: 50px;
+}
+
+.home-container h1 {
+  font-size: 70px;
+  margin-right: 20px;
+}
+
+
+.home-container section {
+  /*box-shadow: 5px 10px lightblue;*/
+  border: 1px solid #ced4da;
+  box-shadow: 5px 10px lightblue;
+  border-radius: 5px;
+  background: #FFF;
+  width: 55%;
+  height: 50vh;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container section h2 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.home-container section .button-group {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 0;
+}
+
+.home-container section .button-group a {
+  font-size: 35px; 
+} 
