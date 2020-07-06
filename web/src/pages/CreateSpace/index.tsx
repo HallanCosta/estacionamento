@@ -4,7 +4,12 @@ import './styles.css';
 
 const CreateSpace = () => {
 
-  const [board, setBoard] = useState<string>('');
+  const [formData, setFormData] = useState({
+    name: '',
+    board: '',
+  });
+
+  const [board, setBoard] = useState('');
 
   function handleBoardCaracteres(event: ChangeEvent<HTMLInputElement>) {
     event.target.value = event.target.value.toUpperCase();
@@ -17,8 +22,17 @@ const CreateSpace = () => {
       event.target.value = event.target.value.substr(0, 7);
       setBoard(event.target.value);
     }
+
+    handleInputChange(event);
   }
 
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    
+    setFormData({ ...formData, [name]: value });
+  }
+
+  // Ultimo commit: CreateSpace - adding function handleBoardCaracteres
 
   return (
     <div className="create-space-container">
@@ -35,7 +49,8 @@ const CreateSpace = () => {
               type="text" 
               name="name"
               id="name"
-              placeholder="Camaro" 
+              placeholder="Camaro"
+              onChange={handleInputChange} 
             />
           </fieldset>
 
