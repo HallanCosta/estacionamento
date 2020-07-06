@@ -1,19 +1,9 @@
 import React from 'react';
+import { FaCar } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-/*function handleBoardCaracteres() {
-  if (board.length === 3) {
-    board += '-';
-  }
-
-  if (board.length >= 1) {
-    board.toUpperCase();
-    //passar a board para o estado
-  }
-  Esta<br/>cionamento
-}
-*/
 const Home = () => {
 
   return (
@@ -28,8 +18,20 @@ const Home = () => {
         <h2>Escolha uma opção</h2>
         
         <div className="button-group"> 
-          <a className="buttons">Estacionar carro</a><br/>
-          <a className="buttons">Mostre-me os carros</a>
+          <Link className="buttons" to="/create-space">
+            Estacionar carro
+            <span>
+              <FaCar size={24} />
+            </span>
+          </Link>
+          <Link className="buttons" to="/detail-cars">
+            Mostre-me os carros
+            <span>
+              <FaCar size={24} />
+              <FaCar size={20} />
+              <FaCar size={24} />
+            </span>
+          </Link>
         </div> 
       </section>
     </div>

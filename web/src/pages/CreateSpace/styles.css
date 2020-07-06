@@ -1,0 +1,68 @@
+.create-space-container {
+  color: #323232;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-weight: 700;
+  padding: 50px;
+  background: 
+}
+
+.create-space-container header {
+  width: 100%;
+}
+
+.create-space-container header h1 {
+  font-size: 30px;
+}
+
+.create-space-container section {
+  height: 50vh;
+
+  background: #FFF;
+  padding: 40px 50px 40px;
+  margin: 5px 0 0;
+  border-radius: 10px;
+  box-shadow: 5px 10px lightblue;
+}
+
+.create-space-container section form {
+  
+}
+
+.create-space-container section form fieldset {
+  border: none;
+  margin: 10px 0 0;
+}
+
+.create-space-container section form fieldset label {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.create-space-container section form fieldset input {
+  width: 80%;
+  font-size: 18px;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  padding: 10px 16px 10px;
+  margin: 5px 0 0;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  transition: background 0.2s;
+}
+
+.create-space-container section form fieldset input:hover {
+  background-color: #F0F0F5;
+  filter: brightness(95%);
+}
+
+.create-space-container section form fieldset input:focus {
+  background-color: #F0F0F5;
+  filter: brightness(95%);
+}
+
+.create-space-container section form button {
+  padding: 14px;
+  font-size: 18px;
+  margin: 14px 0 0; 
+}

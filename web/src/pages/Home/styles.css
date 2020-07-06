@@ -13,8 +13,8 @@
 
 
 .home-container section {
-  /*box-shadow: 5px 10px lightblue;*/
   border: 1px solid #ced4da;
+  /*box-shadow: 5px 10px black;*/
   box-shadow: 5px 10px lightblue;
   border-radius: 5px;
   background: #FFF;
@@ -39,4 +39,9 @@
 
 .home-container section .button-group a {
   font-size: 35px; 
+  margin: 8px;
 } 
+
+.home-container section .button-group a span {
+  margin-left: 10px;
+}
