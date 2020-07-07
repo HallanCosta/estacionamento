@@ -1,6 +1,5 @@
 .create-space-container {
   color: #323232;
-  /*font-family: 'Roboto', sans-serif;*/
   font-weight: 700;
   padding: 50px;
   background: 
@@ -15,8 +14,6 @@
 }
 
 .create-space-container section {
-  height: 50vh;
-
   background: #FFF;
   padding: 40px 50px 40px;
   margin: 5px 0 0;
@@ -24,8 +21,8 @@
   box-shadow: 5px 10px lightblue;
 }
 
-.create-space-container section form {
-  
+.create-space-container section .arrowLeft {
+  color: #0C0C0C;
 }
 
 .create-space-container section form fieldset {

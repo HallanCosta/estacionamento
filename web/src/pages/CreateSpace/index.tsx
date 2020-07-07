@@ -1,16 +1,10 @@
 import React, { FormEvent, ChangeEvent, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 import api from '../../services/api';
 
 import './styles.css';
 
-/*interface Cars {
-  id: number;
-  name: string;
-  board: string;
-  create_at: string;
-}
-*/
 const CreateSpace = () => {
 
   const history = useHistory();
@@ -58,8 +52,6 @@ const CreateSpace = () => {
     history.push('/');
   }
 
-  // Ultimo commit: CreateSpace - adding function handleBoardCaracteres
-
   return (
     <div className="create-space-container">
       <header>
@@ -67,6 +59,11 @@ const CreateSpace = () => {
       </header>
 
       <section>
+
+        <Link to="/">
+          <FaArrowLeft size={30} className="arrowLeft" />
+        </Link>
+
         <form onSubmit={handleSubmit}>
 
           <fieldset>
@@ -93,6 +90,7 @@ const CreateSpace = () => {
 
           <button type="submit" className="buttons">Estacionar</button>
         </form>
+
       </section>
     </div>
   );
