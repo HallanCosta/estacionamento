@@ -1,15 +1,24 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { FormEvent, ChangeEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import api from '../../services/api';
 
 import './styles.css';
 
+/*interface Cars {
+  id: number;
+  name: string;
+  board: string;
+  create_at: string;
+}
+*/
 const CreateSpace = () => {
 
+  const history = useHistory();
+  const [board, setBoard] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     board: '',
   });
-
-  const [board, setBoard] = useState('');
 
   function handleBoardCaracteres(event: ChangeEvent<HTMLInputElement>) {
     event.target.value = event.target.value.toUpperCase();
@@ -28,8 +37,25 @@ const CreateSpace = () => {
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
-    
+
     setFormData({ ...formData, [name]: value });
+  }
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    
+    const { name, board } = formData;
+
+    const data = {
+      name,
+      board
+    };
+ 
+    await api.post('cars', data);
+
+    alert('Carro estacionado!');
+
+    history.push('/');
   }
 
   // Ultimo commit: CreateSpace - adding function handleBoardCaracteres
@@ -41,7 +67,7 @@ const CreateSpace = () => {
       </header>
 
       <section>
-        <form>
+        <form onSubmit={handleSubmit}>
 
           <fieldset>
             <label>Nome do veículo:</label><br />
