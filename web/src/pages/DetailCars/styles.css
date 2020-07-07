@@ -1,0 +1,76 @@
+.detail-cars-container {
+  color: #323232;
+  font-weight: 700;
+  padding: 50px;
+}
+
+.detail-cars-container header {
+  width: 100%;
+}
+
+.detail-cars-container header h1 {
+  font-size: 30px;
+}
+
+.detail-cars-container section {
+  background: #FFF;
+  padding: 40px 50px 40px;
+  margin: 5px 0 0;
+  border-radius: 10px;
+  box-shadow: 5px 10px lightblue;
+}
+
+.detail-cars-container section .arrowLeft {
+  color: #0C0C0C;
+  margin-bottom: 10px;
+  transition: background .2s;
+}
+
+.detail-cars-container section .arrowLeft:hover {
+  color: gray;
+}
+
+.detail-cars-container section table {
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.detail-cars-container section table thead tr th {
+  color: #212529;
+  font-size: 20px;
+  padding: 5px;
+  border-bottom: 2px solid grey;
+}
+
+.detail-cars-container section table tbody tr:nth-child(2n-2) {
+  background-color: lightgrey;
+  filter: brightness(105%);
+}
+
+.detail-cars-container section table tbody tr td {
+  text-align: center;
+  font-family: cursive;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.detail-cars-container section table tbody tr td a {
+  padding: 10px 15px 10px;
+  font-size: 18px;
+  background: red;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  transition: background .2s;
+}
+
+.detail-cars-container section table tbody tr td a:hover {
+  background: darkred;
+}
+
+
+
+

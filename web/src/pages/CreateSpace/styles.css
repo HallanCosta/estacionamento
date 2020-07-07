@@ -2,7 +2,6 @@
   color: #323232;
   font-weight: 700;
   padding: 50px;
-  background: 
 }
 
 .create-space-container header {
@@ -24,6 +23,11 @@
 .create-space-container section .arrowLeft {
   color: #0C0C0C;
 }
+
+.create-space-container section .arrowLeft:hover {
+  color: gray;
+}
+
 
 .create-space-container section form fieldset {
   border: none;
