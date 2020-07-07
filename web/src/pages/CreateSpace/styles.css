@@ -27,6 +27,9 @@
 
 .create-space-container section form fieldset {
   border: none;
+}
+
+.create-space-container section form fieldset .field {
   margin: 10px 0 0;
 }
 

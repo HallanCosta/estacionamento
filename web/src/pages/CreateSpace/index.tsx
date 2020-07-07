@@ -67,25 +67,27 @@ const CreateSpace = () => {
         <form onSubmit={handleSubmit}>
 
           <fieldset>
-            <label>Nome do veículo:</label><br />
-            <input 
-              type="text" 
-              name="name"
-              id="name"
-              placeholder="Camaro"
-              onChange={handleInputChange} 
-            />
-          </fieldset>
+            <div className="field">
+              <label>Nome do veículo:</label><br />
+              <input 
+                type="text" 
+                name="name"
+                id="name"
+                placeholder="Camaro"
+                onChange={handleInputChange} 
+              />
+            </div>
 
-          <fieldset>
-            <label>Placa do veículo:</label><br />
-            <input 
-              type="text" 
-              name="board"
-              id="board"
-              placeholder="XXX-XXX" 
-              onChange={handleBoardCaracteres}
-            />
+            <div className="field">
+              <label>Placa do veículo:</label><br />
+              <input 
+                type="text" 
+                name="board"
+                id="board"
+                placeholder="XXX-XXX" 
+                onChange={handleBoardCaracteres}
+              />
+            </div>
           </fieldset>
 
           <button type="submit" className="buttons">Estacionar</button>
