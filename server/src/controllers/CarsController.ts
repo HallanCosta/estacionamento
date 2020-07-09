@@ -4,7 +4,12 @@ import knex from '../database/connection';
 class CarsController {
 
   async index(request: Request, response: Response) {
-    const cars = await knex('cars').select('*');
+    const { page = 1 } = request.query;
+    
+    const cars = await knex('cars')
+      .select('*')
+      .offset((page) - 1)
+      .limit(5);
 
     return response.json(cars);
   }
@@ -17,7 +22,7 @@ class CarsController {
       board,
     });
 
-    return response.sendStatus(201);
+    return response.status(201).json();
   }
 
   async delete(request : Request, response: Response) {
@@ -28,10 +33,10 @@ class CarsController {
       .where('id', id);
 
     if (!cars) {
-      return response.sendStatus(400);
+      return response.status(400).json({ message: 'Error: bad request' });
     }
 
-    return response.json(200);
+    return response.status(200).json();
   }
 
 }
