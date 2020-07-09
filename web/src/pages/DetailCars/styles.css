@@ -1,36 +1,4 @@
-.detail-cars-container {
-  color: #323232;
-  font-weight: 700;
-  padding: 50px;
-}
-
-.detail-cars-container header {
-  width: 100%;
-}
-
-.detail-cars-container header h1 {
-  font-size: 30px;
-}
-
-.detail-cars-container section {
-  background: #FFF;
-  padding: 40px 50px 40px;
-  margin: 5px 0 0;
-  border-radius: 10px;
-  box-shadow: 5px 10px lightblue;
-}
-
-.detail-cars-container section .arrowLeft {
-  color: #0C0C0C;
-  margin-bottom: 10px;
-  transition: background .2s;
-}
-
-.detail-cars-container section .arrowLeft:hover {
-  color: gray;
-}
-
-.detail-cars-container section table {
+/*.detail-cars-container section table {
   width: 100%;
   background: white;
   border-radius: 3px;
@@ -69,6 +37,93 @@
 
 .detail-cars-container section table tbody tr td a:hover {
   background: darkred;
+  filter: brightness(150%);
+}*/
+
+
+
+
+
+.detail-cars-container {
+  color: #323232;
+  font-weight: 700;
+  padding: 50px;
+}
+
+.detail-cars-container header {
+  width: 100%;
+}
+
+.detail-cars-container header h1 {
+  font-size: 30px;
+}
+
+.detail-cars-container section {
+  background: #FFF;
+  padding: 40px 50px 40px;
+  margin: 5px 0 0;
+  border-radius: 10px;
+  box-shadow: 5px 10px lightblue;
+}
+
+.detail-cars-container section a .arrowLeft {
+  color: #0C0C0C;
+  margin-bottom: 10px;
+  transition: background .2s;
+}
+
+.detail-cars-container section a .arrowLeft:hover {
+  color: gray;
+}
+
+
+
+.detail-cars-container section h2 {
+  margin: 10px 0 20px;
+  border-bottom: 3px solid black;
+}
+
+.detail-cars-container section ul {
+  display: grid;
+  grid-template-columns: 25% 25% 30% 20%;
+  list-style: none;
+
+  border-radius: 5px 5px 5px;
+  margin: 10px 0 0;
+  background: lightgrey;
+  filter: brightness(105%);
+}
+
+.detail-cars-container section ul li {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.detail-cars-container section ul .entry {
+  padding: 20px;
+  font-size: 20px;
+  text-align: right;
+}
+
+.detail-cars-container section ul .entry button {
+  padding: 10px 15px 10px;
+  font-size: 18px;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  transition: background .2s;
+}
+
+.detail-cars-container section ul .entry button:hover {
+  background: darkred;
+  filter: brightness(150%);
+}
+
+.detail-cars-container section ul li span {
+  color: #0C0C0C;
 }
 
 

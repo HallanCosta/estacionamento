@@ -45,10 +45,9 @@ const CreateSpace = () => {
       board
     };
  
-    await api.post('cars', data);
+    await api.post('cars', data)
 
     alert('Carro estacionado!');
-
     history.push('/');
   }
 
