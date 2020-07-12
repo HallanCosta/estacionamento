@@ -60,7 +60,7 @@
 
 .detail-cars-container section {
   background: #FFF;
-  padding: 40px 50px 40px;
+  padding: 40px 50px 30px;
   margin: 5px 0 0;
   border-radius: 10px;
   box-shadow: 5px 10px lightblue;
@@ -76,14 +76,12 @@
   color: gray;
 }
 
-
-
 .detail-cars-container section h2 {
   margin: 10px 0 20px;
   border-bottom: 3px solid black;
 }
 
-.detail-cars-container section ul {
+.detail-cars-container section main ul {
   display: grid;
   grid-template-columns: 25% 25% 30% 20%;
   list-style: none;
@@ -94,18 +92,18 @@
   filter: brightness(105%);
 }
 
-.detail-cars-container section ul li {
+.detail-cars-container section main ul li {
   padding: 20px;
   font-size: 20px;
 }
 
-.detail-cars-container section ul .entry {
+.detail-cars-container section main ul .entry {
   padding: 20px;
   font-size: 20px;
   text-align: right;
 }
 
-.detail-cars-container section ul .entry button {
+.detail-cars-container section main ul .entry button {
   padding: 10px 15px 10px;
   font-size: 18px;
   background: red;
@@ -117,15 +115,62 @@
   transition: background .2s;
 }
 
-.detail-cars-container section ul .entry button:hover {
+.detail-cars-container section main ul .entry button:hover {
   background: darkred;
   filter: brightness(150%);
 }
 
-.detail-cars-container section ul li span {
+.detail-cars-container section main ul li span {
   color: #0C0C0C;
 }
 
+.detail-cars-container footer {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
 
+.detail-cars-container footer nav {
+}
 
+.detail-cars-container footer nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  filter: brightness(105%);
+  border-radius: 5px;
+}
 
+.detail-cars-container footer nav ul li {
+  display: flex;
+  align-items: center;
+  outline: 1px solid #c0c0c0;
+}
+
+.detail-cars-container footer nav ul li a {
+  font-size: 18px;
+  padding: 8px 10px 8px;
+  color: #007bff;
+  font-family: 'Roboto';
+  font-weight: 400;
+  transition: background .2s;
+}
+
+.detail-cars-container footer nav ul li a:hover {
+  background: #dee2e6;
+  outline: 1px solid #dee2e6;
+}
+
+.detail-cars-container footer nav ul li a:focus {
+  color: #fff;
+  background: #007bff;
+  outline: 1px solid #007bff;
+}
+
+.detail-cars-container footer nav ul li .previous-next:focus {
+  background: #fff;
+  color: #007bff;
+}

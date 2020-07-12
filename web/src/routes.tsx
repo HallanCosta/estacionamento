@@ -6,13 +6,16 @@ import CreateSpace from './pages/CreateSpace';
 import DetailCars from './pages/DetailCars';
 
 const Routes = () => {
+
   return (
     <BrowserRouter>
-      <Route component={Home} path="/" exact />
-      <Route component={CreateSpace} path="/create-space" />
-      <Route component={DetailCars} path="/detail-cars" />
+      <Route path="/" component={Home} exact />
+      <Route path="/create-space" component={CreateSpace} />
+      <Route path="/detail-cars/:page?" component={DetailCars} />
     </BrowserRouter>
   );
 }
+
+
 
 export default Routes;

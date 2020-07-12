@@ -24,7 +24,7 @@ const Home = () => {
               <FaCar size={24} />
             </span>
           </Link>
-          <Link className="buttons" to="/detail-cars">
+          <Link className="buttons" to="/detail-cars/">
             Mostre-me os carros
             <span>
               <FaCar size={24} />
