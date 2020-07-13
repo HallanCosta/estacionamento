@@ -1,6 +1,7 @@
 import React, { FormEvent, ChangeEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import * as yup from 'yup'; 
 import api from '../../services/api';
 
 import './styles.css';
@@ -39,6 +40,24 @@ const CreateSpace = () => {
     event.preventDefault();
     
     const { name, board } = formData;
+
+    const schema = yup.object().shape({
+      name: yup.string().required(),
+      board: yup
+        .string()
+        .min(7)
+        .max(7)
+        .required()
+    });
+
+    schema
+      .isValid({
+          name: name,
+          board: board,
+        })
+        .then(valid => {
+          valid ? null : alert("Dados ínvalidos!");
+        })
 
     const data = {
       name,

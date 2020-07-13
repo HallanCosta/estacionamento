@@ -181,7 +181,7 @@ const DetailCars = (props: any) => {
 
   function handleClickNumbersPagination(page: number) {
 
-    if (props.match.params.page == 6) {
+    if (props.match.params.page == pages.length) {
       setNext({
         color: "#0c0c0c",
         opacity: .5
