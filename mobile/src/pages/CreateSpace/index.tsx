@@ -1,11 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useHistory } from '@react-navigation/native';
+import { TextInputMask } from 'react-native-masked-text'; 
+
 import api from '../../services/api';
 
 const CreateSpace = () => {
+
+  // const history = useHistory();
+
+  // const [name, setName] = useState<string>('');
+  // const [board, setBoard] = useState<string>('');
+  const [formData, setFormData] = useState({
+    name: '',
+    board: '',
+  });
 
   const navigation = useNavigation();
 
@@ -13,18 +24,43 @@ const CreateSpace = () => {
     navigation.navigate('Home');
   }
 
-  return (
-    <View style={styles.container}>
+  function handleBoardCharacters(value: any) {
+    if (value.length == 3) {
+      value += '-';
+      setFormData({ ...formData, board: value.toUpperCase() });
+    }
 
-      <RectButton style={{ marginTop: 20 }} onPress={handleNavigateBack}>
+    setFormData({ ...formData, board: value.toUpperCase() });
+  }
+
+
+  function handleCreationCar() {
+    console.log(name);
+    console.log(board);
+    // await api.post('cars', data);
+  }
+
+
+
+  return (
+    <KeyboardAvoidingView 
+      style={styles.container} 
+      behavior={ Platform.OS == 'ios' ? 'padding' : 'position'} 
+      enabled
+    >
+
+      <TouchableOpacity 
+        style={styles.buttonBack} 
+        onPress={handleNavigateBack}
+      >
         <Icon  
           name="arrow-left" 
           size={20} 
           color="#0c0c0c"
         />
-      </RectButton>
+      </TouchableOpacity>
 
-      <View style={styles.header}>
+      <View style={styles.main}>
         <Text style={styles.title1}>Estacione</Text>
         <Text style={styles.title2}>um</Text>
         <Text style={styles.title3}>Carro</Text>
@@ -38,20 +74,31 @@ const CreateSpace = () => {
             <Text style={styles.fieldText}>Nome do veículo</Text>
             <TextInput 
               style={styles.fieldInput}
+              autoFocus={true}
+              autoCorrect={false}
               placeholder="Chevrolet"
+              onChangeText={value => setFormData({ ...formData, name: value })}
+              value={formData.name}
             />
           </View>
 
           <View style={styles.field}>
             <Text style={styles.fieldText}>Placa do veículo</Text>
             <TextInput 
-              style={styles.fieldInput} 
+              style={styles.fieldInput}
+              autoCorrect={false}    
               placeholder="XXX-XXX" 
+              onChangeText={value => handleBoardCharacters(value)}
+              value={formData.board}
+              maxLength={7}
             />
           </View>
 
           <View style={styles.buttonContainer}>
-            <RectButton style={styles.button}>
+            <RectButton 
+              style={styles.button}
+              onPress={handleCreationCar}
+            >
               <Text style={styles.buttonText}>Estacionar</Text>
             </RectButton>
           </View>
@@ -59,7 +106,8 @@ const CreateSpace = () => {
         </View>
       </View>
 
-    </View>
+    </KeyboardAvoidingView>
+
   );
 }
 
@@ -70,8 +118,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f5'
   },
 
-  header: {
-    marginTop: 32,
+  buttonBack: {
+    marginTop: 20, 
+    marginBottom: 50, 
+  },
+
+  main: {
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#0c0c0c',
@@ -82,7 +134,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     elevation: 5,
     backgroundColor: '#fff',
-    padding: 10
+    // padding: 10
+    // paddingBottom: 25
   },
 
   title1: {
@@ -107,7 +160,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    marginTop: 64,
+    marginTop: 50,
   },
 
   fieldset: {},
