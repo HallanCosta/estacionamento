@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './pages/Home';
 import CreateSpace from './pages/CreateSpace';
+import Detail from './pages/Detail';
 
 const AppStack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const Routes = () => {
       >
         <AppStack.Screen name="Home" component={Home} />
         <AppStack.Screen name="CreateSpace" component={CreateSpace} />
+        <AppStack.Screen name="Detail" component={Detail} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   function handleNavigationDetail() {
-    alert('Detail....');
+   navigation.navigate('Detail');
   }
 
   function handleMessageOptions() {
