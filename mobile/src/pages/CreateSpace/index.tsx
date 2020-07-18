@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather as Icon } from '@expo/vector-icons';
-import { useNavigation, useHistory } from '@react-navigation/native';
-import { TextInputMask } from 'react-native-masked-text'; 
+import { useNavigation } from '@react-navigation/native';
+import * as yup from 'yup'; 
 
 import api from '../../services/api';
 
 const CreateSpace = () => {
 
-  // const history = useHistory();
-
-  // const [name, setName] = useState<string>('');
-  // const [board, setBoard] = useState<string>('');
   const [formData, setFormData] = useState({
     name: '',
     board: '',
@@ -24,7 +20,7 @@ const CreateSpace = () => {
     navigation.navigate('Home');
   }
 
-  function handleBoardCharacters(value: any) {
+  function handleBoardCharacters(value: string) {
     if (value.length == 3) {
       value += '-';
       setFormData({ ...formData, board: value.toUpperCase() });
@@ -34,10 +30,40 @@ const CreateSpace = () => {
   }
 
 
-  function handleCreationCar() {
-    console.log(name);
-    console.log(board);
-    // await api.post('cars', data);
+  async function handleCreationCar() {
+
+    const { name, board } = formData; 
+
+    const schema = yup.object().shape({
+      name: yup.string().required(),
+      board: yup
+        .string()
+        .min(7)
+        .max(7)
+        .required()
+    });
+
+    const valid = await schema.isValid({
+      name: name,
+      board: board,
+    });
+
+    if (!valid) {
+      return alert("Dados ínvalidos!");
+    }
+  
+    const data = {
+      name,
+      board
+    };
+
+    await api.post('/cars', data);
+
+    Alert.alert('Vaga', 'Carro estacionado!');
+    setFormData({
+      name: '',
+      board: ''
+    });
   }
 
 
