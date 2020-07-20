@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
@@ -9,17 +9,19 @@ const Detail = () => {
   const navigation = useNavigation();
   
   const [cars, setCars] = useState<object[]>([]);
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
+  const [counter, setCounter] = useState<number>(0);
 
   async function loadCars() {
     if (loading) {
       return;
     }
 
-
     if (total > 0 && cars.length == total) {
+      console.log('total nao sie o q')
       return;
     }
 
@@ -27,7 +29,6 @@ const Detail = () => {
 
     const response = await api.get(`cars?page=${currentPage}`)
 
-    console.log(response.data)
     setCars([ ...cars, ...response.data.cars ]);
     setTotal(response.data.count);
     setCurrentPage(currentPage + 1);
@@ -36,10 +37,45 @@ const Detail = () => {
 
   useEffect(() => {
     loadCars();
-  }, []);
+  }, [total]);
+
 
   function handleNavigateBack() {
     navigation.navigate('Home');
+  }
+
+  function handleExitCar(vacancy: number) {
+    Alert.alert(
+      "Cuidado",
+      `Você deseja realmente finalizar a vaga ${vacancy}? `,
+      [
+        {
+          text: "Sim",
+          onPress: () => removeCar(vacancy)
+        },
+        {
+          text: "Não",
+        }
+
+      ],
+      { cancelable: true }
+    );
+  }
+
+  async function removeCar(vacancy: number) {
+    const exit = await api.delete(`/cars/${vacancy}`);
+
+    if (!exit) {
+      Alert.alert('Alerta', 'Ooops... ocorreu um erro!');
+      return;
+    } 
+
+    Alert.alert('Sucesso', `Carro retirado da vaga ${vacancy}`);
+
+    const response = await api.get('/cars');
+
+    setCars(response.data.cars);
+    setTotal(response.data.count);
   }
 
   return (
@@ -67,20 +103,31 @@ const Detail = () => {
           onEndReached={loadCars}
           onEndReachedThereshold={0.2}
           renderItem={({ item: car }) => (
-            <View style={styles.cars}>
+            
+            <TouchableOpacity 
+              style={styles.cars}
+              onPress={() => handleExitCar(car.id)}
+            >
               <Text style={styles.name}>
-                Nome: <Text style={styles.nameValue}>{car.name}</Text>
+                Vaga: 
+                <Text style={styles.value}>
+                  {car.id}
+                </Text>
+              </Text>
+              <Text style={styles.name}>
+                Nome: <Text style={styles.value}>{car.name}</Text>
               </Text>
               <Text style={styles.board}>
-                Placa: <Text style={styles.boardValue}>{car.board}</Text>
+                Placa: <Text style={styles.value}>{car.board}</Text>
               </Text>
               <Text style={styles.entry}>
-                Entrada: <Text style={styles.entryValue}>{car.created_at}</Text>
+                Entrada: <Text style={styles.value}>{car.created_at}</Text>
               </Text>
-            </View>
+
+            </TouchableOpacity>
+           
           )}
         />
-  
 
       </View>
     </View>
@@ -131,32 +178,25 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontSize: 25,
+    fontSize: 22,
     opacity: .8,
     fontFamily: 'Roboto_500Medium',
   },
 
-  nameValue: {
-    fontFamily: 'Roboto_400Regular',
-  },
 
   board: {
-    fontSize: 25,
+    fontSize: 22,
     opacity: .8,
     fontFamily: 'Roboto_500Medium',
   },
-
-  boardValue: {
-    fontFamily: 'Roboto_400Regular',
-  }, 
 
   entry: {
-    fontSize: 25,
+    fontSize: 22,
     opacity: .8,
     fontFamily: 'Roboto_500Medium',
   },
 
-  entryValue: {
+  value: {
     fontFamily: 'Roboto_400Regular',
   }, 
 
