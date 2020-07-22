@@ -10,7 +10,7 @@ class CarsController {
 
     const cars = await knex('cars')
       .select('*')
-      .offset((page - 1) * 5)
+      .offset((Number(page) - 1) * 5)
       .limit(5);
 
     return response.json({
