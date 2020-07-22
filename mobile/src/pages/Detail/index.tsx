@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import * as yup from 'yup';
 import api from '../../services/api';
 
 const Detail = () => {
@@ -9,11 +10,13 @@ const Detail = () => {
   const navigation = useNavigation();
   
   const [cars, setCars] = useState<object[]>([]);
+  const [car, setCar] = useState([]);
+  const [vacancy, setVacancy] = useState<number>(0);
+  const [search, setSearch] = useState<boolean>(false);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
-  const [counter, setCounter] = useState<number>(0);
 
   async function loadCars() {
     if (loading) {
@@ -21,13 +24,12 @@ const Detail = () => {
     }
 
     if (total > 0 && cars.length == total) {
-      console.log('total nao sie o q')
       return;
     }
 
     setLoading(true);
 
-    const response = await api.get(`cars?page=${currentPage}`)
+    const response = await api.get(`/cars?page=${currentPage}`);
 
     setCars([ ...cars, ...response.data.cars ]);
     setTotal(response.data.count);
@@ -74,11 +76,69 @@ const Detail = () => {
 
     const response = await api.get('/cars');
 
+    setSearch(false);
     setCars(response.data.cars);
     setTotal(response.data.count);
   }
 
+  async function handleUniqueSearchCar() {
+
+    const schema = yup.object().shape({
+      vacancy: yup.number().positive().integer().required()
+    });
+
+    schema
+      .isValid({
+        vacancy: vacancy
+      }).then(valid => {
+        valid ? vacancy : Alert.alert('Error', 'Ops... Ocorreu um erro!');
+      });
+
+    api.get(`/cars/${vacancy}`)
+      .then(response => {
+        setCar(response.data.car);
+        setSearch(true);
+      }).catch(error => {
+        Alert.alert('Vaga', 'Esta vaga está vazia.');
+      });
+  }
+
+  function SearchCar() {
+
+    if (!search) {
+      return <></>;
+    }
+
+    return (
+      <>
+        <Text style={styles.searchCarTitle}>Carro encontrado: {car.name}</Text>
+
+        <TouchableOpacity 
+          style={styles.cars}
+          onPress={() => handleExitCar(car.id)}
+        >
+          <Text style={styles.name}>
+            Vaga: 
+            <Text style={styles.value}>
+              {car.id}
+            </Text>
+          </Text>
+          <Text style={styles.name}>
+            Nome: <Text style={styles.value}>{car.name}</Text>
+          </Text>
+          <Text style={styles.board}>
+            Placa: <Text style={styles.value}>{car.board}</Text>
+          </Text>
+          <Text style={styles.entry}>
+            Entrada: <Text style={styles.value}>{car.created_at}</Text>
+          </Text>
+        </TouchableOpacity>
+      </>
+    );
+  }
+
   return (
+
     <View style={styles.container}>
 
       <TouchableOpacity 
@@ -94,6 +154,28 @@ const Detail = () => {
 
       <View style={styles.main}>
 
+        <View style={styles.search}>
+          <TextInput
+            style={styles.inputSearch}
+            placeholder="Pesquise uma vaga"
+            keyboardType="numeric"
+            onChangeText={value => value == 0 ? setSearch(false) : setVacancy(value)}
+            maxLength={2}
+          />
+
+          <TouchableOpacity
+            onPress={handleUniqueSearchCar}
+          >
+            <Icon 
+              name="search"
+              size={24}
+              color="#0c0c0c"
+            />
+          </TouchableOpacity>
+        </View>
+
+        <SearchCar />
+        
         <Text style={styles.title}>Carros estacionados</Text>
 
         <FlatList 
@@ -156,6 +238,31 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
+  search: {
+    flexDirection: 'row'
+  },
+
+  inputSearch: {
+    borderWidth: 1,
+    borderColor: '#0c0c0c',
+    borderRadius: 5,
+    width: 250,
+    paddingHorizontal: 12,
+    fontSize: 16, 
+    marginRight: 10,
+    marginBottom: 10,
+  },
+
+  searchCar: {
+    flexDirection: 'column'
+  },
+  
+  searchCarTitle: {
+    fontSize: 18,
+    fontFamily: 'Roboto_300Light',
+    marginTop: 5,
+  },
+
   carList: {
     marginTop: 20,
     borderTopWidth: 3,
@@ -169,7 +276,7 @@ const styles = StyleSheet.create({
 
   cars: {
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     borderWidth: 3,
     borderColor: '#0c0c0c',
     borderRadius: 5,
