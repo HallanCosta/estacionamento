@@ -10,12 +10,29 @@ class CarsController {
 
     const cars = await knex('cars')
       .select('*')
-      .offset(((page) - 1) * 5)
+      .offset((page - 1) * 5)
       .limit(5);
 
     return response.json({
-      cars, 
+      cars: cars, 
       count: count['count(*)']
+    });
+  }
+
+  async show(request: Request, response: Response) {
+    const { vacancy } = request.params;
+
+    const car = await knex('cars')
+      .select('*')
+      .where('id', '=', vacancy).first();
+
+
+    if (!car) {
+      return response.status(406).json({ message: "Esta vaga está vazia." });
+    } 
+
+    return response.json({
+      car
     });
   }
 
