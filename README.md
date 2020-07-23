@@ -16,8 +16,10 @@ Mensagem: Carro estacionado com sucesso
 Pagina dos carros que estão estacionados
 ![4-1](https://user-images.githubusercontent.com/60573155/88223086-4de2c500-cc3d-11ea-89ec-3fabb4688c2e.PNG)
 ![4-2](https://user-images.githubusercontent.com/60573155/88223088-4de2c500-cc3d-11ea-9c37-cf9f5186fb0b.PNG)
+
 Mensgem: Carro retirado com sucesso
 ![5-1](https://user-images.githubusercontent.com/60573155/88223091-4f13f200-cc3d-11ea-9d5c-3eb2e42be0c4.PNG)
+
 Visualização carro Cherry retirado com sucesso
 ![5-2](https://user-images.githubusercontent.com/60573155/88223093-4f13f200-cc3d-11ea-9c78-d6daa8a18a77.PNG)
 
@@ -42,19 +44,21 @@ Visualização carro Cherry retirado com sucesso
 <hr>
 
 <div align="center">
-  <center>
-    <strong>Tela para estacionar um carro</strong>
-  </center>
-  <img src="https://user-images.githubusercontent.com/60573155/88224497-74096480-cc3f-11ea-8231-083a826f0553.jpeg" width="210px" height="360px"> <img src="https://user-images.githubusercontent.com/60573155/88224498-74a1fb00-cc3f-11ea-985b-585b10eb6a39.jpeg" width="210px" height="360px">
+<h4>Tela para estacionar um carro</h4>
+
+<img src="https://user-images.githubusercontent.com/60573155/88224497-74096480-cc3f-11ea-8231-083a826f0553.jpeg" width="210px" height="360px"> <img src="https://user-images.githubusercontent.com/60573155/88224498-74a1fb00-cc3f-11ea-985b-585b10eb6a39.jpeg" width="210px" height="360px">
 </div>
 
 <hr>
 
-<div>
-  <center>
-    <strong>Tela onde mostra os carros estacionados</strong>
-  </center>
+<div align="center">
+<center>
+<h4>Tela onde mostra os carros estacionados</h4>
+</center>
+
+<center>  
   <img src="https://user-images.githubusercontent.com/60573155/88224499-74a1fb00-cc3f-11ea-867a-b429e00fef2a.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224501-753a9180-cc3f-11ea-9a88-ad2a7ad3a284.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224503-753a9180-cc3f-11ea-9cfe-df3d4bd734d0.jpeg" width="190px" height="340px">
+<center>
 </div>
 
 # Author
