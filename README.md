@@ -24,11 +24,11 @@ Visualização carro Cherry retirado com sucesso
 ![5-2](https://user-images.githubusercontent.com/60573155/88223093-4f13f200-cc3d-11ea-9c78-d6daa8a18a77.PNG)
 
 
-<center>
+<div align="center">
   <h2>Tela Mobile - React Native</h2>
-</center>
+</div>
 
-<center>
+<div align="center">
   <table>
     <tr>
       <th>Tela de carregamento</th>
@@ -39,7 +39,7 @@ Visualização carro Cherry retirado com sucesso
       <td><img src="https://user-images.githubusercontent.com/60573155/88224494-7370ce00-cc3f-11ea-81f8-0970477717cd.jpeg" width="210px" height="360px"></td>
     </tr>
   </table>
-</center>
+</div>
 
 <hr>
 
@@ -52,13 +52,11 @@ Visualização carro Cherry retirado com sucesso
 <hr>
 
 <div align="center">
-<center>
 <h4>Tela onde mostra os carros estacionados</h4>
-</center>
 
-<center>  
-  <img src="https://user-images.githubusercontent.com/60573155/88224499-74a1fb00-cc3f-11ea-867a-b429e00fef2a.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224501-753a9180-cc3f-11ea-9a88-ad2a7ad3a284.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224503-753a9180-cc3f-11ea-9cfe-df3d4bd734d0.jpeg" width="190px" height="340px">
-<center>
+
+<img src="https://user-images.githubusercontent.com/60573155/88224499-74a1fb00-cc3f-11ea-867a-b429e00fef2a.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224501-753a9180-cc3f-11ea-9a88-ad2a7ad3a284.jpeg" width="190px" height="340px"> <img src="https://user-images.githubusercontent.com/60573155/88224503-753a9180-cc3f-11ea-9cfe-df3d4bd734d0.jpeg" width="190px" height="340px">
+
 </div>
 
 # Author
