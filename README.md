@@ -28,7 +28,7 @@ Visualização carro Cherry retirado com sucesso
   <h2>Tela Mobile - React Native</h2>
 </div>
 
-<div align="center">
+<div align="center" width="100%">
   <table align="center">
     <tr>
       <th>Tela de carregamento</th>
