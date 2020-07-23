@@ -29,8 +29,8 @@ Visualização carro Cherry retirado com sucesso
 </div>
 
 <div align="center">
-Tela de carregamento | Tela principal
----|---
+<h4>Tela de carregamento | Tela principal</h4>
+
 <img src="https://user-images.githubusercontent.com/60573155/88231140-0e6ea580-cc4a-11ea-9c55-6e12f3c7811c.jpeg" width="210px" height="360px">  <img src="https://user-images.githubusercontent.com/60573155/88224494-7370ce00-cc3f-11ea-81f8-0970477717cd.jpeg" width="210px" height="360px">
 </div>
 
