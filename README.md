@@ -28,25 +28,19 @@ Visualização carro Cherry retirado com sucesso
   <h2>Tela Mobile - React Native</h2>
 </div>
 
-<div align="center" width="100%">
-  <table align="center">
-    <tr>
-      <th>Tela de carregamento</th>
-      <th>Tela principal</th>
-    </tr>
-    <tr>
-      <td><img src="https://user-images.githubusercontent.com/60573155/88231140-0e6ea580-cc4a-11ea-9c55-6e12f3c7811c.jpeg" width="210px" height="360px"></td>
-      <td><img src="https://user-images.githubusercontent.com/60573155/88224494-7370ce00-cc3f-11ea-81f8-0970477717cd.jpeg" width="210px" height="360px"></td>
-    </tr>
-  </table>
+<div align="center">
+Tela de carregamento | Tela principal
+---|---
+<img src="https://user-images.githubusercontent.com/60573155/88231140-0e6ea580-cc4a-11ea-9c55-6e12f3c7811c.jpeg" width="210px" height="360px">  <img src="https://user-images.githubusercontent.com/60573155/88224494-7370ce00-cc3f-11ea-81f8-0970477717cd.jpeg" width="210px" height="360px">
 </div>
+
 
 <hr>
 
 <div align="center">
 <h4>Tela para estacionar um carro</h4>
 
-<img src="https://user-images.githubusercontent.com/60573155/88224497-74096480-cc3f-11ea-8231-083a826f0553.jpeg" width="210px" height="360px"> <img src="https://user-images.githubusercontent.com/60573155/88224498-74a1fb00-cc3f-11ea-985b-585b10eb6a39.jpeg" width="210px" height="360px">
+<img src="https://user-images.githubusercontent.com/60573155/88224497-74096480-cc3f-11ea-8231-083a826f0553.jpeg" width="210px" height="360px"> | <img src="https://user-images.githubusercontent.com/60573155/88224498-74a1fb00-cc3f-11ea-985b-585b10eb6a39.jpeg" width="210px" height="360px">
 </div>
 
 <hr>
