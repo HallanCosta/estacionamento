@@ -29,7 +29,7 @@ Visualização carro Cherry retirado com sucesso
 </div>
 
 <div align="center">
-  <table>
+  <table align="center">
     <tr>
       <th>Tela de carregamento</th>
       <th>Tela principal</th>
